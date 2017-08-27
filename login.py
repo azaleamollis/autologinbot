@@ -13,18 +13,18 @@ browser.get(('https://accounts.google.com/ServiceLogin?'
 
 # fill in username and hit the next button
 
-username = browser.find_element_by_id('Email')
+username = browser.find_element_by_id('identifierId')
 username.send_keys(usernameStr)
 
-nextButton = browser.find_element_by_id('next')
+nextButton = browser.find_element_by_id('identifierNext')
 nextButton.click()
 
 # wait for transition then continue to fill items
 
 password = WebDriverWait(browser, 10).until(
-    EC.presence_of_element_located((By.ID, "Passwd")))
+    EC.presence_of_element_located((By.NAME, "password")))
 
 password.send_keys(passwordStr)
 
-signInButton = browser.find_element_by_id('signIn')
+signInButton = browser.find_element_by_id('passwordNext')
 signInButton.click()
